@@ -1,8 +1,8 @@
 class Chargelight < Formula
   desc "Program the LED on your MagSafe charger from a shell, a script or an agent"
   homepage "https://github.com/TaraxioT/chargelight"
-  url "https://github.com/TaraxioT/chargelight/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "61d004399b5ee949639bd110f5051f1393bc177ef92548913119f59cc55ab4f4"
+  url "https://github.com/TaraxioT/chargelight/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "5662bd3eea7e86573cfd9d4fe5c412c8cc0bed8088029cec37faeeb3d0059c62"
   license "MIT"
   head "https://github.com/TaraxioT/chargelight.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Chargelight < Formula
     # Not on PATH: `sudo chargelight setup` copies it to a root-owned location.
     libexec.install products/"chargelight-helper"
 
-    generate_completions_from_executable(bin/"chargelight", "completions", shells: [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"chargelight", "completions")
   end
 
   def caveats
@@ -29,7 +29,7 @@ class Chargelight < Formula
         sudo chargelight setup
 
       Then try it (with the MagSafe charger plugged in):
-        chargelight demo
+        chargelight play
         chargelight amber
         chargelight flash green
         chargelight run -- sleep 5
